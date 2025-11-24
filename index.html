@@ -614,6 +614,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -651,12 +653,16 @@
 
         .project-body {
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-description {
             color: #666;
             margin-bottom: 1.5rem;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .project-tech {
@@ -674,7 +680,46 @@
             font-size: 0.85rem;
         }
 
-        .project-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+        .project-actions { 
+            display: flex; 
+            gap: 0.75rem; 
+            flex-wrap: nowrap; 
+            margin-top: auto;
+            padding-top: 1.5rem;
+            align-items: center;
+        }
+
+        .project-actions .btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .project-actions .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .project-actions .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-actions .btn-primary:hover {
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-actions .btn i {
+            font-size: 1.1rem;
+        }
 
         /* Education */
         .education-timeline {
@@ -835,6 +880,15 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .project-actions {
+                flex-wrap: wrap;
+            }
+
+            .project-actions .btn {
+                flex: 1 1 calc(50% - 0.375rem);
+                min-width: 120px;
             }
 
             .experience-header {
@@ -1032,25 +1086,14 @@
                 <div class="project-header">
                     <h3 class="project-title">SL Travel</h3>
                     <p class="project-subtitle">Tourism & Travel Management Web App</p>
-                    
                 </div>
                 <div class="project-media">Next.js / PHP / MySQL /</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        A comprehensive tourism-focused web application designed to promote and manage travel experiences across Sri Lanka. 
-                        The platform allows users to explore, plan, and book travel packages, accommodations, and guided tours. 
-                        I was responsible for Full Stack Development with emphasis on backend development using Symfony PHP framework, 
-                        building secure RESTful APIs for user registrations, travel packages, booking systems, and payment integration.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Symfony</span>
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">REST API</span>
-                    </div>
+                    <p class="project-description">A comprehensive tourism-focused web application designed to promote and manage travel experiences across Sri Lanka. The platform allows users to explore, plan, and book travel packages, accommodations, and guided tours. I was responsible for Full Stack Development with emphasis on backend development using Symfony PHP framework, building secure RESTful APIs for user registrations, travel packages, booking systems, and payment integration.</p>
+                    <div class="project-tech"><span class="tech-badge">Symfony</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span><span class="tech-badge">REST API</span></div>
                     <div class="project-actions">
                         <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="#" aria-label="Source Code">Source</a>
+                        <a class="btn btn-secondary" href="#" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1061,18 +1104,11 @@
                 </div>
                 <div class="project-media">Android / Kotlin / Firebase</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Android app where local citizens can become guiders and post places and travel packages. Visitors can browse, purchase packages, and make reservations. Built with Kotlin and Firebase services, including FCM for notifications.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Kotlin</span>
-                        <span class="tech-badge">Firebase</span>
-                        <span class="tech-badge">FCM</span>
-                        <span class="tech-badge">Android Studio</span>
-                    </div>
+                    <p class="project-description">Android app where local citizens can become guiders and post places and travel packages. Visitors can browse, purchase packages, and make reservations. Built with Kotlin and Firebase services, including FCM for notifications.</p>
+                    <div class="project-tech"><span class="tech-badge">Kotlin</span><span class="tech-badge">Firebase</span><span class="tech-badge">FCM</span><span class="tech-badge">Android Studio</span></div>
                     <div class="project-actions">
                         <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="#" aria-label="Source Code">Source</a>
+                        <a class="btn btn-secondary" href="#" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1083,20 +1119,11 @@
                 </div>
                 <div class="project-media">Java / PHP / MySQL</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Passengers can check bus schedules, reserve seats, and receive confirmations. The system applies OOP principles and offers a user-friendly booking experience.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Java</span>
-                        <span class="tech-badge">Tomcat</span>
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">XAMPP</span>
-                        <span class="tech-badge">Eclipse</span>
-                    </div>
+                    <p class="project-description">Passengers can check bus schedules, reserve seats, and receive confirmations. The system applies OOP principles and offers a user-friendly booking experience.</p>
+                    <div class="project-tech"><span class="tech-badge">Java</span><span class="tech-badge">Tomcat</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span><span class="tech-badge">XAMPP</span><span class="tech-badge">Eclipse</span></div>
                     <div class="project-actions">
                         <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="#" aria-label="Source Code">Source</a>
+                        <a class="btn btn-secondary" href="#" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1107,18 +1134,11 @@
                 </div>
                 <div class="project-media">Web / PHP / JS</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Users can register, log in, and share their ideas by posting polls and votes. Includes proposal and flowchart documentation.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">JavaScript</span>
-                    </div>
+                    <p class="project-description">Users can register, log in, and share their ideas by posting polls and votes. Includes proposal and flowchart documentation.</p>
+                    <div class="project-tech"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">PHP</span><span class="tech-badge">JavaScript</span></div>
                     <div class="project-actions">
                         <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="#" aria-label="Source Code">Source</a>
+                        <a class="btn btn-secondary" href="#" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1129,16 +1149,11 @@
                 </div>
                 <div class="project-media">Web / Social</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Community-driven site where users can post, discover, and adopt road pets, helping them find safe homes faster.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                    </div>
+                    <p class="project-description">Community-driven site where users can post, discover, and adopt road pets, helping them find safe homes faster.</p>
+                    <div class="project-tech"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/RoadPets---Hosting---local" target="_blank" rel="noopener" aria-label="Source Code">Source</a>
+                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/RoadPets---Hosting---local" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1149,16 +1164,11 @@
                 </div>
                 <div class="project-media">IoT / Sensors</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Rebuilt smartwatch featuring gyro, body temperature, and BPM sensors with fall detection and a monitoring dashboard.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">IoT</span>
-                        <span class="tech-badge">Sensors</span>
-                        <span class="tech-badge">Dashboard</span>
-                    </div>
+                    <p class="project-description">Rebuilt smartwatch featuring gyro, body temperature, and BPM sensors with fall detection and a monitoring dashboard.</p>
+                    <div class="project-tech"><span class="tech-badge">IoT</span><span class="tech-badge">Sensors</span><span class="tech-badge">Dashboard</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Smartwatch_Iot_Project" target="_blank" rel="noopener" aria-label="Source Code">Source</a>
+                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Smartwatch_Iot_Project" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1169,16 +1179,11 @@
                 </div>
                 <div class="project-media">Web / Utility</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Calculate distance between two points, fuel needed, and estimated cost for trips.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                    </div>
+                    <p class="project-description">Calculate distance between two points, fuel needed, and estimated cost for trips.</p>
+                    <div class="project-tech"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Fuel_Distence_Calculator" target="_blank" rel="noopener" aria-label="Source Code">Source</a>
+                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Fuel_Distence_Calculator" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1189,16 +1194,11 @@
                 </div>
                 <div class="project-media">Python / API</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Python service that scrapes official sources to provide up-to-date Sri Lankan fuel prices for integrations.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">FastAPI</span>
-                        <span class="tech-badge">Web Scraping</span>
-                    </div>
+                    <p class="project-description">Python service that scrapes official sources to provide up-to-date Sri Lankan fuel prices for integrations.</p>
+                    <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">Web Scraping</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/SL_Fuel_Price_API" target="_blank" rel="noopener" aria-label="Source Code">Source</a>
+                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/SL_Fuel_Price_API" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1209,16 +1209,11 @@
                 </div>
                 <div class="project-media">Browser Extension</div>
                 <div class="project-body">
-                    <p class="project-description">
-                        Multi-tool extension providing clipboard helpers, currency converter, calculator, weather, world clock, and more in one place.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">Chrome Extension</span>
-                        <span class="tech-badge">APIs</span>
-                    </div>
+                    <p class="project-description">Multi-tool extension providing clipboard helpers, currency converter, calculator, weather, world clock, and more in one place.</p>
+                    <div class="project-tech"><span class="tech-badge">JavaScript</span><span class="tech-badge">Chrome Extension</span><span class="tech-badge">APIs</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WebToolkit_BrowserExtension" target="_blank" rel="noopener" aria-label="Source Code">Source</a>
+                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WebToolkit_BrowserExtension" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1237,7 +1232,8 @@
                         <span class="tech-badge">Browser Extension</span>
                     </div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/HolidayReminder2025" target="_blank" rel="noopener" aria-label="Source Code">Source</a>
+                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/HolidayReminder2025" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill" style="margin-right: 6px;"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1256,7 +1252,8 @@
                         <span class="tech-badge">Browser Extension</span>
                     </div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WordToPdf_Browser_Extension" target="_blank" rel="noopener" aria-label="Source Code">Source</a>
+                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WordToPdf_Browser_Extension" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill" style="margin-right: 6px;"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
