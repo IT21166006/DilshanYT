@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +69,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Animated Background */
@@ -122,14 +125,18 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotate(0deg);
                 opacity: 1;
             }
+
             33% {
                 transform: translateY(-100px) rotate(120deg);
                 opacity: 0.7;
             }
+
             66% {
                 transform: translateY(100px) rotate(240deg);
                 opacity: 0.5;
@@ -250,6 +257,7 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -307,7 +315,7 @@
             background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
             color: white;
         }
-        
+
 
         .btn-secondary {
             background: transparent;
@@ -317,7 +325,7 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .hero-socials {
@@ -358,6 +366,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -383,9 +392,11 @@
             0% {
                 border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             }
+
             50% {
                 border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
             }
+
             100% {
                 border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             }
@@ -415,13 +426,34 @@
         }
 
         @keyframes float-tech {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        .tech-1 { top: 10%; left: -20%; animation-delay: 0s; }
-        .tech-2 { top: 50%; right: -20%; animation-delay: 1s; }
-        .tech-3 { bottom: 10%; left: -10%; animation-delay: 2s; }
+        .tech-1 {
+            top: 10%;
+            left: -20%;
+            animation-delay: 0s;
+        }
+
+        .tech-2 {
+            top: 50%;
+            right: -20%;
+            animation-delay: 1s;
+        }
+
+        .tech-3 {
+            bottom: 10%;
+            left: -10%;
+            animation-delay: 2s;
+        }
 
         /* Sections */
         section {
@@ -434,7 +466,7 @@
             background: white;
             border-radius: 20px;
             margin: 2rem auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .section-title {
@@ -458,8 +490,16 @@
         }
 
         /* Reveal Animations */
-        .reveal { opacity: 0; transform: translateY(24px) scale(0.98); transition: opacity 700ms ease, transform 700ms ease; }
-        .reveal-visible { opacity: 1; transform: translateY(0) scale(1); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
+            transition: opacity 700ms ease, transform 700ms ease;
+        }
+
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
         /* About Section */
         .about-content {
@@ -502,7 +542,8 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .skill-category h3, .skill-category-title {
+        .skill-category h3,
+        .skill-category-title {
             color: #fff;
             margin-bottom: 1rem;
             display: flex;
@@ -522,57 +563,144 @@
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.9rem;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .skill-category:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(0,0,0,0.18); }
-        
-        /* Skills card reveal animation */
-        @keyframes cardFadeUp {
-            from { opacity: 0; transform: translateY(16px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+        .skill-category:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
         }
 
-        #skills.reveal .skill-category { opacity: 0; }
-        #skills.reveal.reveal-visible .skill-category { animation: cardFadeUp 600ms ease forwards; }
-        #skills.reveal.reveal-visible .skill-category:nth-child(1) { animation-delay: 0ms; }
-        #skills.reveal.reveal-visible .skill-category:nth-child(2) { animation-delay: 80ms; }
-        #skills.reveal.reveal-visible .skill-category:nth-child(3) { animation-delay: 160ms; }
-        #skills.reveal.reveal-visible .skill-category:nth-child(4) { animation-delay: 240ms; }
-        #skills.reveal.reveal-visible .skill-category:nth-child(5) { animation-delay: 320ms; }
-        #skills.reveal.reveal-visible .skill-category:nth-child(6) { animation-delay: 400ms; }
+        /* Skills card reveal animation */
+        @keyframes cardFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        #skills.reveal .skill-category {
+            opacity: 0;
+        }
+
+        #skills.reveal.reveal-visible .skill-category {
+            animation: cardFadeUp 600ms ease forwards;
+        }
+
+        #skills.reveal.reveal-visible .skill-category:nth-child(1) {
+            animation-delay: 0ms;
+        }
+
+        #skills.reveal.reveal-visible .skill-category:nth-child(2) {
+            animation-delay: 80ms;
+        }
+
+        #skills.reveal.reveal-visible .skill-category:nth-child(3) {
+            animation-delay: 160ms;
+        }
+
+        #skills.reveal.reveal-visible .skill-category:nth-child(4) {
+            animation-delay: 240ms;
+        }
+
+        #skills.reveal.reveal-visible .skill-category:nth-child(5) {
+            animation-delay: 320ms;
+        }
+
+        #skills.reveal.reveal-visible .skill-category:nth-child(6) {
+            animation-delay: 400ms;
+        }
 
         /* Stagger animations for other sections */
-        #projects.reveal .project-card { opacity: 0; }
-        #projects.reveal.reveal-visible .project-card { animation: cardFadeUp 650ms ease forwards; }
-        #projects.reveal.reveal-visible .project-card:nth-child(1) { animation-delay: 0ms; }
-        #projects.reveal.reveal-visible .project-card:nth-child(2) { animation-delay: 100ms; }
-        #projects.reveal.reveal-visible .project-card:nth-child(3) { animation-delay: 200ms; }
-        #projects.reveal.reveal-visible .project-card:nth-child(4) { animation-delay: 300ms; }
-        #projects.reveal.reveal-visible .project-card:nth-child(5) { animation-delay: 400ms; }
+        #projects.reveal .project-card {
+            opacity: 0;
+        }
 
-        #experience.reveal .experience-card { opacity: 0; }
-        #experience.reveal.reveal-visible .experience-card { animation: cardFadeUp 650ms ease forwards; }
+        #projects.reveal.reveal-visible .project-card {
+            animation: cardFadeUp 650ms ease forwards;
+        }
 
-        #education.reveal .education-item { opacity: 0; }
-        #education.reveal.reveal-visible .education-item { animation: cardFadeUp 650ms ease forwards; }
-        #education.reveal.reveal-visible .education-item:nth-child(1) { animation-delay: 0ms; }
-        #education.reveal.reveal-visible .education-item:nth-child(2) { animation-delay: 120ms; }
-        #education.reveal.reveal-visible .education-item:nth-child(3) { animation-delay: 240ms; }
+        #projects.reveal.reveal-visible .project-card:nth-child(1) {
+            animation-delay: 0ms;
+        }
 
-        #contact.reveal .contact-card { opacity: 0; }
-        #contact.reveal.reveal-visible .contact-card { animation: cardFadeUp 650ms ease forwards; }
-        #contact.reveal.reveal-visible .contact-card:nth-child(1) { animation-delay: 0ms; }
-        #contact.reveal.reveal-visible .contact-card:nth-child(2) { animation-delay: 120ms; }
-        .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        #projects.reveal.reveal-visible .project-card:nth-child(2) {
+            animation-delay: 100ms;
+        }
+
+        #projects.reveal.reveal-visible .project-card:nth-child(3) {
+            animation-delay: 200ms;
+        }
+
+        #projects.reveal.reveal-visible .project-card:nth-child(4) {
+            animation-delay: 300ms;
+        }
+
+        #projects.reveal.reveal-visible .project-card:nth-child(5) {
+            animation-delay: 400ms;
+        }
+
+        #experience.reveal .experience-card {
+            opacity: 0;
+        }
+
+        #experience.reveal.reveal-visible .experience-card {
+            animation: cardFadeUp 650ms ease forwards;
+        }
+
+        #education.reveal .education-item {
+            opacity: 0;
+        }
+
+        #education.reveal.reveal-visible .education-item {
+            animation: cardFadeUp 650ms ease forwards;
+        }
+
+        #education.reveal.reveal-visible .education-item:nth-child(1) {
+            animation-delay: 0ms;
+        }
+
+        #education.reveal.reveal-visible .education-item:nth-child(2) {
+            animation-delay: 120ms;
+        }
+
+        #education.reveal.reveal-visible .education-item:nth-child(3) {
+            animation-delay: 240ms;
+        }
+
+        #contact.reveal .contact-card {
+            opacity: 0;
+        }
+
+        #contact.reveal.reveal-visible .contact-card {
+            animation: cardFadeUp 650ms ease forwards;
+        }
+
+        #contact.reveal.reveal-visible .contact-card:nth-child(1) {
+            animation-delay: 0ms;
+        }
+
+        #contact.reveal.reveal-visible .contact-card:nth-child(2) {
+            animation-delay: 120ms;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
         /* Experience */
         .experience-card {
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
             border-left: 4px solid var(--primary);
         }
@@ -611,7 +739,7 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             position: relative;
             display: flex;
@@ -620,7 +748,7 @@
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .project-media {
@@ -680,10 +808,10 @@
             font-size: 0.85rem;
         }
 
-        .project-actions { 
-            display: flex; 
-            gap: 0.75rem; 
-            flex-wrap: nowrap; 
+        .project-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: nowrap;
             margin-top: auto;
             padding-top: 1.5rem;
             align-items: center;
@@ -743,7 +871,7 @@
             padding: 1.5rem;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .education-item::before {
@@ -785,14 +913,14 @@
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: all 0.3s ease;
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .contact-icon {
@@ -897,6 +1025,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader" aria-hidden="true">
@@ -942,7 +1071,8 @@
                     Y. Tharindu <span class="gradient-text">Dilshan</span>
                 </h1>
                 <p class="hero-description">
-                    Enthusiastic Full Stack Web Developer crafting seamless user experiences through innovative solutions. 
+                    Enthusiastic Full Stack Web Developer crafting seamless user experiences through innovative
+                    solutions.
                     Passionate about UI/UX engineering and eager to embrace challenges in web development.
                 </p>
                 <div class="hero-buttons">
@@ -950,10 +1080,13 @@
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
                 <div class="hero-socials">
-                    <a href="mailto:ytdilshan101@gmail.com" class="social-link" aria-label="Email"><i class="ri-mail-line"></i></a>
+                    <a href="mailto:ytdilshan101@gmail.com" class="social-link" aria-label="Email"><i
+                            class="ri-mail-line"></i></a>
                     <a href="tel:+94787531115" class="social-link" aria-label="Phone"><i class="ri-phone-line"></i></a>
-                    <a href="https://github.com/IT21166006" class="social-link" aria-label="Portfolio"><i class="ri-global-line"></i></a>
-                    <a href="https://www.linkedin.com/in/tharindu-dilshan-08aaba2ba/" class="social-link" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                    <a href="https://github.com/IT21166006" class="social-link" aria-label="Portfolio"><i
+                            class="ri-global-line"></i></a>
+                    <a href="https://www.linkedin.com/in/tharindu-dilshan-08aaba2ba/" class="social-link"
+                        aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
                 </div>
             </div>
             <div class="hero-image">
@@ -971,24 +1104,29 @@
     <!-- About Section -->
     <section class="section-white reveal" id="about">
         <h2 class="section-title">About Me</h2>
-        
-            <div>
-                <h3>Professional Summary</h3>
-                <p>
-                    I'm Tharindu, a developer who enjoys turning ideas into simple, useful products. I focus on clean UI, reliable backends, and smooth user experiences.
-                </p>
-                <p>
-                    I have hands-on experience as a Full Stack Developer at Sri Lanka Telecom PLC and I’m currently pursuing a BSc (Hons) in Information Technology at SLIIT.
-                </p>
-                <p>
-                    I like working with React, Node.js, PHP/Symfony, and Kotlin, and I’m comfortable shipping features end-to-end—from design to deployment.
-                </p>
-                <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                    <a class="btn btn-primary" href="https://www.mediafire.com/file/5bky4ck4pg46bj2/Y.Tharindu_Dilshan_CV_new.pdf/file" download aria-label="Download Resume">
-                        <i class="ri-download-2-line" style="margin-right:8px;"></i>Download Resume
-                    </a>
-                </div>
+
+        <div>
+            <h3>Professional Summary</h3>
+            <p>
+                I'm Tharindu, a developer who enjoys turning ideas into simple, useful products. I focus on clean UI,
+                reliable backends, and smooth user experiences.
+            </p>
+            <p>
+                I have hands-on experience as a Full Stack Developer at Sri Lanka Telecom PLC and I’m currently pursuing
+                a BSc (Hons) in Information Technology at SLIIT.
+            </p>
+            <p>
+                I like working with React, Node.js, PHP/Symfony, and Kotlin, and I’m comfortable shipping features
+                end-to-end—from design to deployment.
+            </p>
+            <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a class="btn btn-primary"
+                    href="https://www.mediafire.com/file/5bky4ck4pg46bj2/Y.Tharindu_Dilshan_CV_new.pdf/file" download
+                    aria-label="Download Resume">
+                    <i class="ri-download-2-line" style="margin-right:8px;"></i>Download Resume
+                </a>
             </div>
+        </div>
         </div>
     </section>
 
@@ -1071,8 +1209,8 @@
                 <span class="experience-date">6 Months</span>
             </div>
             <p>
-                Worked as a Full Stack Developer contributing to digital projects at Sri Lanka Telecom PLC. 
-                Developed and maintained web applications using modern technologies and frameworks. 
+                Worked as a Full Stack Developer contributing to digital projects at Sri Lanka Telecom PLC.
+                Developed and maintained web applications using modern technologies and frameworks.
                 Collaborated with the IT & Network - Digital Projects team to deliver high-quality solutions.
             </p>
         </div>
@@ -1089,11 +1227,21 @@
                 </div>
                 <div class="project-media">React / Node.js / MongoDB</div>
                 <div class="project-body">
-                    <p class="project-description">RoadPets is a web platform designed to help people find and reunite lost road pets. Users can post missing or found animals with images, manage profiles, and communicate through a secure authentication system. Built with a modern MERN stack, it ensures fast performance, scalable storage, and a simple UI for easy reporting and browsing of pets.</p>
-                    <div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">Express</span><span class="tech-badge">MongoDB</span><span class="tech-badge">JWT Auth</span><span class="tech-badge">Cloudinary</span><span class="tech-badge">Bootstrap</span><span class="tech-badge">Netlify</span><span class="tech-badge">Render</span><span class="tech-badge">REST API</span></div>
+                    <p class="project-description">RoadPets is a web platform designed to help people find and reunite
+                        lost road pets. Users can post missing or found animals with images, manage profiles, and
+                        communicate through a secure authentication system. Built with a modern MERN stack, it ensures
+                        fast performance, scalable storage, and a simple UI for easy reporting and browsing of pets.</p>
+                    <div class="project-tech"><span class="tech-badge">React</span><span
+                            class="tech-badge">Node.js</span><span class="tech-badge">Express</span><span
+                            class="tech-badge">MongoDB</span><span class="tech-badge">JWT Auth</span><span
+                            class="tech-badge">Cloudinary</span><span class="tech-badge">Bootstrap</span><span
+                            class="tech-badge">Netlify</span><span class="tech-badge">Render</span><span
+                            class="tech-badge">REST API</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="https://roadpetslk.dpdns.org/" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/RoadPets---Hosting---local" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        <a class="btn btn-primary" href="https://roadpetslk.dpdns.org/" aria-label="Live Demo">Live
+                            Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/RoadPets---Hosting---local"
+                            aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1104,11 +1252,20 @@
                 </div>
                 <div class="project-media">Next.js / PHP / MySQL /</div>
                 <div class="project-body">
-                    <p class="project-description">A comprehensive tourism-focused web application designed to promote and manage travel experiences across Sri Lanka. The platform allows users to explore, plan, and book travel packages, accommodations, and guided tours. I was responsible for Full Stack Development with emphasis on backend development using Symfony PHP framework, building secure RESTful APIs for user registrations, travel packages, booking systems, and payment integration.</p>
-                    <div class="project-tech"><span class="tech-badge">Symfony</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span><span class="tech-badge">REST API</span></div>
+                    <p class="project-description">A comprehensive tourism-focused web application designed to promote
+                        and manage travel experiences across Sri Lanka. The platform allows users to explore, plan, and
+                        book travel packages, accommodations, and guided tours. I was responsible for Full Stack
+                        Development with emphasis on backend development using Symfony PHP framework, building secure
+                        RESTful APIs for user registrations, travel packages, booking systems, and payment integration.
+                    </p>
+                    <div class="project-tech"><span class="tech-badge">Symfony</span><span
+                            class="tech-badge">PHP</span><span class="tech-badge">MySQL</span><span
+                            class="tech-badge">REST API</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="http://sltravel.devtester.xyz/" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/CWVithanage?tab=repositories" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        <a class="btn btn-primary" href="http://sltravel.devtester.xyz/" aria-label="Live Demo">Live
+                            Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/CWVithanage?tab=repositories"
+                            aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1119,11 +1276,17 @@
                 </div>
                 <div class="project-media">Android / Kotlin / Firebase</div>
                 <div class="project-body">
-                    <p class="project-description">Android app where local citizens can become guiders and post places and travel packages. Visitors can browse, purchase packages, and make reservations. Built with Kotlin and Firebase services, including FCM for notifications.</p>
-                    <div class="project-tech"><span class="tech-badge">Kotlin</span><span class="tech-badge">Firebase</span><span class="tech-badge">FCM</span><span class="tech-badge">Android Studio</span></div>
+                    <p class="project-description">Android app where local citizens can become guiders and post places
+                        and travel packages. Visitors can browse, purchase packages, and make reservations. Built with
+                        Kotlin and Firebase services, including FCM for notifications.</p>
+                    <div class="project-tech"><span class="tech-badge">Kotlin</span><span
+                            class="tech-badge">Firebase</span><span class="tech-badge">FCM</span><span
+                            class="tech-badge">Android Studio</span></div>
                     <div class="project-actions">
-                        
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/SL-Backpacker-Guide-Android-App/tree/main" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+
+                        <a class="btn btn-secondary"
+                            href="https://github.com/IT21166006/SL-Backpacker-Guide-Android-App/tree/main"
+                            aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1134,11 +1297,18 @@
                 </div>
                 <div class="project-media">Java / PHP / MySQL</div>
                 <div class="project-body">
-                    <p class="project-description">Passengers can check bus schedules, reserve seats, and receive confirmations. The system applies OOP principles and offers a user-friendly booking experience.</p>
-                    <div class="project-tech"><span class="tech-badge">Java</span><span class="tech-badge">Tomcat</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span><span class="tech-badge">XAMPP</span><span class="tech-badge">Eclipse</span></div>
+                    <p class="project-description">Passengers can check bus schedules, reserve seats, and receive
+                        confirmations. The system applies OOP principles and offers a user-friendly booking experience.
+                    </p>
+                    <div class="project-tech"><span class="tech-badge">Java</span><span
+                            class="tech-badge">Tomcat</span><span class="tech-badge">PHP</span><span
+                            class="tech-badge">MySQL</span><span class="tech-badge">XAMPP</span><span
+                            class="tech-badge">Eclipse</span></div>
                     <div class="project-actions">
-                        
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Java-Bus_TIcket_Resavation_Project" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+
+                        <a class="btn btn-secondary"
+                            href="https://github.com/IT21166006/Java-Bus_TIcket_Resavation_Project"
+                            aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1149,28 +1319,18 @@
                 </div>
                 <div class="project-media">Web / PHP / JS</div>
                 <div class="project-body">
-                    <p class="project-description">Users can register, log in, and share their ideas by posting polls and votes. Includes proposal and flowchart documentation.</p>
-                    <div class="project-tech"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">PHP</span><span class="tech-badge">JavaScript</span></div>
+                    <p class="project-description">Users can register, log in, and share their ideas by posting polls
+                        and votes. Includes proposal and flowchart documentation.</p>
+                    <div class="project-tech"><span class="tech-badge">HTML</span><span
+                            class="tech-badge">CSS</span><span class="tech-badge">PHP</span><span
+                            class="tech-badge">JavaScript</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Online-Voting-System" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Online-Voting-System"
+                            aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">Road Pets</h3>
-                    <p class="project-subtitle">Social platform to help road pets find homes</p>
-                </div>
-                <div class="project-media">Web / Social</div>
-                <div class="project-body">
-                    <p class="project-description">Community-driven site where users can post, discover, and adopt road pets, helping them find safe homes faster.</p>
-                    <div class="project-tech"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span></div>
-                    <div class="project-actions">
-                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/RoadPets---Hosting---local" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
-                    </div>
-                </div>
-            </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">Smartwatch IoT Project</h3>
@@ -1178,11 +1338,16 @@
                 </div>
                 <div class="project-media">IoT / Sensors</div>
                 <div class="project-body">
-                    <p class="project-description">Rebuilt smartwatch featuring gyro, body temperature, and BPM sensors with fall detection and a monitoring dashboard.</p>
-                    <div class="project-tech"><span class="tech-badge">IoT</span><span class="tech-badge">Sensors</span><span class="tech-badge">Dashboard</span></div>
+                    <p class="project-description">Rebuilt smartwatch featuring gyro, body temperature, and BPM sensors
+                        with fall detection and a monitoring dashboard.</p>
+                    <div class="project-tech"><span class="tech-badge">IoT</span><span
+                            class="tech-badge">Sensors</span><span class="tech-badge">Dashboard</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=WJWNR-U4vfQ&t=9s" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Smartwatch_Iot_Project" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=WJWNR-U4vfQ&t=9s"
+                            aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Smartwatch_Iot_Project"
+                            target="_blank" rel="noopener" aria-label="Sourcecode"><i
+                                class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1193,11 +1358,17 @@
                 </div>
                 <div class="project-media">Web / Utility</div>
                 <div class="project-body">
-                    <p class="project-description">Calculate distance between two points, fuel needed, and estimated cost for trips.</p>
-                    <div class="project-tech"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span></div>
+                    <p class="project-description">Calculate distance between two points, fuel needed, and estimated
+                        cost for trips.</p>
+                    <div class="project-tech"><span class="tech-badge">HTML</span><span
+                            class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Fuel_Distence_Calculator" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        <a class="btn btn-primary"
+                            href="https://www.mediafire.com/file/klnpyw38bu73chs/SL_Fuel_Calculator.apk/file"
+                            aria-label="Live Demo">APK File</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/Fuel_Distence_Calculator"
+                            target="_blank" rel="noopener" aria-label="Sourcecode"><i
+                                class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1208,11 +1379,16 @@
                 </div>
                 <div class="project-media">Python / API</div>
                 <div class="project-body">
-                    <p class="project-description">Python service that scrapes official sources to provide up-to-date Sri Lankan fuel prices for integrations.</p>
-                    <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">Web Scraping</span></div>
+                    <p class="project-description">Python service that scrapes official sources to provide up-to-date
+                        Sri Lankan fuel prices for integrations.</p>
+                    <div class="project-tech"><span class="tech-badge">Python</span><span
+                            class="tech-badge">FastAPI</span><span class="tech-badge">Web Scraping</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/SL_Fuel_Price_API" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        <a class="btn btn-primary" href="https://sl-fuel-price-api.onrender.com/fuel-prices"
+                            aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/SL_Fuel_Price_API"
+                            target="_blank" rel="noopener" aria-label="Sourcecode"><i
+                                class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1223,11 +1399,15 @@
                 </div>
                 <div class="project-media">Browser Extension</div>
                 <div class="project-body">
-                    <p class="project-description">Multi-tool extension providing clipboard helpers, currency converter, calculator, weather, world clock, and more in one place.</p>
-                    <div class="project-tech"><span class="tech-badge">JavaScript</span><span class="tech-badge">Chrome Extension</span><span class="tech-badge">APIs</span></div>
+                    <p class="project-description">Multi-tool extension providing clipboard helpers, currency converter,
+                        calculator, weather, world clock, and more in one place.</p>
+                    <div class="project-tech"><span class="tech-badge">JavaScript</span><span class="tech-badge">Chrome
+                            Extension</span><span class="tech-badge">APIs</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WebToolkit_BrowserExtension" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WebToolkit_BrowserExtension"
+                            target="_blank" rel="noopener" aria-label="Sourcecode"><i
+                                class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1238,11 +1418,15 @@
                 </div>
                 <div class="project-media">Browser Extension</div>
                 <div class="project-body">
-                    <p class="project-description">Lightweight browser extension that keeps track of holidays throughout 2025 and provides timely reminders.</p>
-                    <div class="project-tech"><span class="tech-badge">JavaScript</span><span class="tech-badge">Browser Extension</span></div>
+                    <p class="project-description">Lightweight browser extension that keeps track of holidays throughout
+                        2025 and provides timely reminders.</p>
+                    <div class="project-tech"><span class="tech-badge">JavaScript</span><span class="tech-badge">Browser
+                            Extension</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/HolidayReminder2025" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/HolidayReminder2025"
+                            target="_blank" rel="noopener" aria-label="Sourcecode"><i
+                                class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
@@ -1253,15 +1437,44 @@
                 </div>
                 <div class="project-media">Browser Extension</div>
                 <div class="project-body">
-                    <p class="project-description">Simple extension to convert Word documents to PDF format quickly from the browser.</p>
-                    <div class="project-tech"><span class="tech-badge">JavaScript</span><span class="tech-badge">Browser Extension</span></div>
+                    <p class="project-description">Simple extension to convert Word documents to PDF format quickly from
+                        the browser.</p>
+                    <div class="project-tech"><span class="tech-badge">JavaScript</span><span class="tech-badge">Browser
+                            Extension</span></div>
                     <div class="project-actions">
-                        <a class="btn btn-primary" href="#" aria-label="Live Demo">Live Demo</a>
-                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WordToPdf_Browser_Extension" target="_blank" rel="noopener" aria-label="Sourcecode"><i class="ri-github-fill"></i>Sourcecode</a>
+                        <a class="btn btn-primary" href="https://microsoftedge.microsoft.com/addons/detail/word-to-pdf-converter/dkoplgepdnooclhhncjflmeokehdjdpa" aria-label="Live Demo">Live Demo</a>
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/WordToPdf_Browser_Extension"
+                            target="_blank" rel="noopener" aria-label="Sourcecode"><i
+                                class="ri-github-fill"></i>Sourcecode</a>
                     </div>
                 </div>
             </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">AdXGuard (Ad Blocker Extension)</h3>
+                    <p class="project-subtitle">Lightweight browser extension for blocking ads & trackers</p>
+                </div>
+                <div class="project-media">Browser Extension</div>
+                <div class="project-body">
+                    <p class="project-description">A fast and privacy-friendly ad blocker that removes ads, popups, and tracking scripts using Chrome’s Declarative Net Request API.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Chrome Extension</span>
+                        <span class="tech-badge">Manifest V3</span>
+                    </div>
+                    <div class="project-actions">
+                        
+                        <a class="btn btn-secondary" href="https://github.com/IT21166006/AdXGuard-Ad-blocker/blob/main/README.md"
+                            target="_blank" rel="noopener" aria-label="Sourcecode"><i
+                                class="ri-github-fill"></i>Sourcecode</a>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
+
     </section>
 
     <!-- Education Section -->
@@ -1343,4 +1556,5 @@
         if (y) y.textContent = new Date().getFullYear();
     </script>
 </body>
+
 </html>
