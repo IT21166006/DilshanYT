@@ -1530,17 +1530,22 @@
         window.addEventListener('scroll', setNavState);
         setNavState();
 
-        // Scroll reveal
+        // Scroll reveal (with mobile-safe fallback)
         const revealEls = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        revealEls.forEach(el => observer.observe(el));
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach(el => observer.observe(el));
+        } else {
+            // Fallback for older mobile browsers: show sections immediately
+            revealEls.forEach(el => el.classList.add('reveal-visible'));
+        }
 
         // Preloader hide
         window.addEventListener('load', () => {
