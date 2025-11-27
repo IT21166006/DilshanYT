@@ -1023,6 +1023,129 @@
                 flex-direction: column;
             }
         }
+
+        /* Mobile Warning Modal - Blocks browsing */
+        .mobile-warning {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .mobile-warning.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .mobile-warning-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.4s ease;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .mobile-warning-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .mobile-warning h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .mobile-warning p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .mobile-warning-instruction {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .mobile-warning-instruction strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .mobile-warning-status {
+            margin-top: 1.5rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .mobile-warning-status.checking {
+            color: #fbbf24;
+        }
+
+        .mobile-warning-status.success {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        /* Prevent scrolling and interaction when modal is shown */
+        body.mobile-locked {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -1031,6 +1154,25 @@
     <div id="preloader" aria-hidden="true">
         <div class="loader" role="status" aria-label="Loading"></div>
     </div>
+
+    <!-- Mobile Warning Modal - Blocks browsing until desktop mode -->
+    <div id="mobileWarning" class="mobile-warning" aria-hidden="true">
+        <div class="mobile-warning-content">
+            <div class="mobile-warning-icon">
+                <i class="ri-computer-line"></i>
+            </div>
+            <h2>Desktop Mode Required</h2>
+            <p>This portfolio is optimized for desktop viewing. Please switch to desktop mode for the best experience.</p>
+            <div class="mobile-warning-instruction">
+                <strong>How to switch to desktop mode:</strong>
+                <span id="instructionText">Rotate your device to landscape or use a desktop/laptop computer.</span>
+            </div>
+            <div class="mobile-warning-status checking" id="statusMessage">
+                <i class="ri-refresh-line" style="animation: spin 1s linear infinite;"></i> Waiting for desktop mode...
+            </div>
+        </div>
+    </div>
+
     <!-- Background Animation -->
     <div class="bg-animation">
         <div class="floating-shapes">
@@ -1530,22 +1672,17 @@
         window.addEventListener('scroll', setNavState);
         setNavState();
 
-        // Scroll reveal (with mobile-safe fallback)
+        // Scroll reveal
         const revealEls = document.querySelectorAll('.reveal');
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15 });
-            revealEls.forEach(el => observer.observe(el));
-        } else {
-            // Fallback for older mobile browsers: show sections immediately
-            revealEls.forEach(el => el.classList.add('reveal-visible'));
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => observer.observe(el));
 
         // Preloader hide
         window.addEventListener('load', () => {
@@ -1559,6 +1696,118 @@
         // Year
         const y = document.getElementById('year');
         if (y) y.textContent = new Date().getFullYear();
+
+        // Mobile Warning - Only shows on actual mobile devices, not laptops
+        function isMobileDevice() {
+            // Check user agent for mobile devices
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+            const isMobileUA = mobileRegex.test(userAgent);
+            
+            // Check for touch capability (mobile devices have touch)
+            const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            // Check screen size - mobile devices typically have smaller screens
+            // Use a lower threshold to avoid laptops (even small ones)
+            const isSmallScreen = window.innerWidth < 768;
+            
+            // Check if it's a tablet (larger mobile device)
+            const isTablet = /ipad|android(?!.*mobile)/i.test(userAgent) && window.innerWidth < 1024;
+            
+            // Only show warning if:
+            // 1. User agent indicates mobile device AND
+            // 2. Has touch capability AND
+            // 3. Screen is small (< 768px) OR it's a tablet (< 1024px)
+            // This excludes laptops even if they have touch screens
+            return (isMobileUA || isTablet) && hasTouchScreen && (isSmallScreen || isTablet);
+        }
+
+        function showMobileWarning() {
+            const warning = document.getElementById('mobileWarning');
+            const body = document.body;
+            
+            if (warning && isMobileDevice()) {
+                warning.classList.add('show');
+                warning.setAttribute('aria-hidden', 'false');
+                body.classList.add('mobile-locked');
+                
+                // Update status message
+                const statusMsg = document.getElementById('statusMessage');
+                if (statusMsg) {
+                    statusMsg.className = 'mobile-warning-status checking';
+                    statusMsg.innerHTML = '<i class="ri-refresh-line" style="animation: spin 1s linear infinite;"></i> Waiting for desktop mode...';
+                }
+            }
+        }
+
+        function hideMobileWarning() {
+            const warning = document.getElementById('mobileWarning');
+            const body = document.body;
+            
+            if (warning) {
+                warning.classList.remove('show');
+                warning.setAttribute('aria-hidden', 'true');
+                body.classList.remove('mobile-locked');
+            }
+        }
+
+        function checkScreenSize() {
+            if (isMobileDevice()) {
+                showMobileWarning();
+            } else {
+                hideMobileWarning();
+                
+                // Show success message briefly when switching to desktop
+                const statusMsg = document.getElementById('statusMessage');
+                if (statusMsg) {
+                    statusMsg.className = 'mobile-warning-status success';
+                    statusMsg.innerHTML = '<i class="ri-checkbox-circle-line"></i> Desktop mode detected! Loading...';
+                }
+            }
+        }
+
+        // Check on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                checkScreenSize();
+            }, 500);
+        });
+
+        // Continuously check on resize and orientation change
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                checkScreenSize();
+            }, 100);
+        });
+
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                checkScreenSize();
+            }, 200);
+        });
+
+        // Prevent any interaction when modal is shown
+        document.addEventListener('click', (e) => {
+            const warning = document.getElementById('mobileWarning');
+            if (warning && warning.classList.contains('show')) {
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            }
+        }, true);
+
+        // Prevent scrolling when modal is shown
+        document.addEventListener('touchmove', (e) => {
+            const warning = document.getElementById('mobileWarning');
+            if (warning && warning.classList.contains('show')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Initial check
+        checkScreenSize();
     </script>
 </body>
 
